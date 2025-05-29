@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media API Capabilities Analysis</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        margin: 20px;
+        background-color: #f8f9fa;
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      .table-wrapper {
+        overflow-x: auto;
+        padding: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        min-width: 1200px;
+      }
+      th {
+        background-color: #f1f3f4;
+        color: #333;
+        font-weight: 600;
+        padding: 12px 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      td {
+        padding: 10px 8px;
+        border: 1px solid #ddd;
+        vertical-align: top;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      tr:hover {
+        background-color: #f0f7ff;
+      }
+      .role {
+        font-weight: 600;
+        color: #1a73e8;
+      }
+      .feature {
+        font-weight: 500;
+      }
+      .api-yes {
+        background-color: #e8f5e8;
+        color: #2e7d32;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 4px;
+        padding: 4px 8px;
+      }
+      .api-partial {
+        background-color: #fff3e0;
+        color: #f57c00;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 4px;
+        padding: 4px 8px;
+      }
+      .api-no {
+        background-color: #ffebee;
+        color: #c62828;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 4px;
+        padding: 4px 8px;
+      }
+      .api-limited {
+        background-color: #f3e5f5;
+        color: #7b1fa2;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 4px;
+        padding: 4px 8px;
+      }
+      .legend {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .legend-box {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Social Media API Capabilities Analysis</h1>
+        <p>
+          Feature availability across Instagram, Facebook, YouTube, and TikTok
+          APIs
+        </p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-box api-yes"></div>
+          <span>✅ Available via API</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box api-partial"></div>
+          <span>🔶 Partially Available</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box api-limited"></div>
+          <span>⚠️ Limited/Restricted</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box api-no"></div>
+          <span>❌ Not Available</span>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Screen/Section</th>
+              <th>Feature</th>
+              <th>Instagram API</th>
+              <th>Facebook API</th>
+              <th>YouTube API</th>
+              <th>TikTok API</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">Followers Count</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td>TikTok: Only for verified accounts or business accounts</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">Engagement Rate</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Must calculate from likes/comments/views data</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">Demo (Gender) %</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Instagram/Facebook: Insights API; YouTube: Analytics API</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">Demo (Age) %</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Available through platform insights/analytics APIs</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">Audience Affinities</td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Limited audience interest data available</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">US Audience (Benchmark)</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Geographic audience data available</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">Competitor Partnership</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>
+                Can get posts, but brand detection requires content analysis
+              </td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Overview)</td>
+              <td class="feature">Vetting Score</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>Requires content analysis of posts/captions</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Engagement)</td>
+              <td class="feature">Engagement Rate Over Time</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Calculate from historical post engagement data</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Engagement)</td>
+              <td class="feature">Organic vs Sponsored Content</td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>May detect some sponsored content markers</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Engagement)</td>
+              <td class="feature">Benchmark</td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Requires external benchmarking data</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Engagement)</td>
+              <td class="feature">Engagement Quality Overview</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Analyze comment sentiment and authenticity</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Follower Growth</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Track over time with regular API calls</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Bot Following</td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Requires third-party analysis tools</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Gender</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Available in audience insights</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Marital Status</td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Very limited demographic data</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Age</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Age ranges available in insights</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Ethnicity</td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Not available in any platform API</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">HHI (Household Income)</td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Very limited income data available</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Location</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Geographic audience data available</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">Country</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Country-level audience data</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">State</td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Limited sub-country geographic data</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Audience)</td>
+              <td class="feature">City</td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Very limited city-level data</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Partnership)</td>
+              <td class="feature">Organic Brand Mentions</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>Requires content analysis and brand detection</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Partnership)</td>
+              <td class="feature">Brand Partnership</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Can detect some sponsored content markers</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Vetting)</td>
+              <td class="feature">Content Criteria Vetting</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>Requires content analysis and AI/ML processing</td>
+            </tr>
+            <tr>
+              <td class="role">Super Admin</td>
+              <td>Influencer Profile View (Vetting)</td>
+              <td class="feature">Posts with Issues Count</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>Count after content analysis</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Vertical/Niche Search</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>Based on content analysis and hashtags</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Keyword Mentions</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td>Search captions, descriptions, titles</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Bio Search</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td>Profile/channel description search</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Family Status</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>Content analysis for family indicators</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Affinities</td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Limited audience interest data</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Income Targeting</td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-limited">⚠️ LIMITED</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Very limited income targeting available</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Image Tags</td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td><span class="api-no">❌ NO</span></td>
+              <td>Requires computer vision API integration</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Posted On (Date Range)</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td>Filter posts by publication date</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Content Type</td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td><span class="api-yes">✅ YES</span></td>
+              <td>Photo, video, reel, short, etc.</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation</td>
+              <td class="feature">Special Considerations</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>Content analysis for luxury/tutorial content</td>
+            </tr>
+            <tr>
+              <td class="role">Agency</td>
+              <td>Campaign Creation (Vetting)</td>
+              <td class="feature">Content Moderation</td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td><span class="api-partial">🔶 PARTIAL</span></td>
+              <td>
+                All vetting features require content analysis and AI/ML for
+                text/image processing
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style="
+          padding: 20px;
+          background-color: #f8f9fa;
+          margin: 20px;
+          border-radius: 8px;
+        "
+      >
+        <h3>Key Implementation Notes:</h3>
+        <ul style="line-height: 1.6">
+          <li>
+            <strong>Content Analysis Required:</strong> Many features marked as
+            "PARTIAL" require additional AI/ML processing of captions,
+            descriptions, and images
+          </li>
+          <li>
+            <strong>TikTok Limitations:</strong> TikTok API has the most
+            restrictions, especially for audience insights and demographics
+          </li>
+          <li>
+            <strong>Audience Data:</strong> Instagram and Facebook provide the
+            richest audience demographic data
+          </li>
+          <li>
+            <strong>Vetting Features:</strong> All content moderation features
+            require custom content analysis solutions
+          </li>
+          <li>
+            <strong>Rate Limits:</strong> All APIs have rate limits that may
+            affect real-time data collection
+          </li>
+          <li>
+            <strong>Business Accounts:</strong> Many advanced features require
+            business/creator account access
+          </li>
+        </ul>
+      </div>
+
+      <div
+        style="
+          padding: 20px;
+          background-color: #fff;
+          margin: 20px;
+          border-radius: 8px;
+          border: 1px solid #ddd;
+        "
+      >
+        <h2>🔌 API Registration & Key Endpoints</h2>
+
+        <div style="margin-bottom: 30px">
+          <h3
+            style="
+              color: #e4405f;
+              border-left: 4px solid #e4405f;
+              padding-left: 12px;
+            "
+          >
+            📸 Instagram API
+          </h3>
+          <div
+            style="
+              background: #f9f9f9;
+              padding: 15px;
+              border-radius: 6px;
+              margin: 10px 0;
+            "
+          >
+            <strong>Registration Process:</strong>
+            <ol style="margin: 10px 0">
+              <li>
+                Create a Facebook Developer Account at
+                <code>developers.facebook.com</code>
+              </li>
+              <li>
+                Create a new App and add Instagram Basic Display or Instagram
+                Graph API product
+              </li>
+              <li>Complete App Review process for advanced permissions</li>
+              <li>For business features, connect Instagram Business Account</li>
+            </ol>
+          </div>
+          <div style="background: #e8f4fd; padding: 15px; border-radius: 6px">
+            <strong>Key API Endpoints:</strong><br />
+            <code>GET /me?fields=id,username,account_type,media_count</code> -
+            Basic profile info<br />
+            <code
+              >GET /{user-id}/media?fields=id,caption,media_type,timestamp</code
+            >
+            - User media<br />
+            <code
+              >GET
+              /{ig-user-id}/insights?metric=follower_count,impressions</code
+            >
+            - Insights (Business only)<br />
+            <code
+              >GET
+              /{ig-user-id}/insights?metric=audience_gender_age,audience_country</code
+            >
+            - Demographics<br />
+            <strong>Base URL:</strong>
+            <code>https://graph.facebook.com/v19.0/</code>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px">
+          <h3
+            style="
+              color: #1877f2;
+              border-left: 4px solid #1877f2;
+              padding-left: 12px;
+            "
+          >
+            📘 Facebook API
+          </h3>
+          <div
+            style="
+              background: #f9f9f9;
+              padding: 15px;
+              border-radius: 6px;
+              margin: 10px 0;
+            "
+          >
+            <strong>Registration Process:</strong>
+            <ol style="margin: 10px 0">
+              <li>
+                Create Facebook Developer Account at
+                <code>developers.facebook.com</code>
+              </li>
+              <li>
+                Create new App and add Facebook Login + Pages API products
+              </li>
+              <li>
+                Request permissions: <code>pages_read_engagement</code>,
+                <code>pages_show_list</code>, <code>read_insights</code>
+              </li>
+              <li>Submit for App Review for production use</li>
+            </ol>
+          </div>
+          <div style="background: #e8f4fd; padding: 15px; border-radius: 6px">
+            <strong>Key API Endpoints:</strong><br />
+            <code>GET /{page-id}?fields=name,followers_count,fan_count</code> -
+            Page info<br />
+            <code
+              >GET
+              /{page-id}/posts?fields=message,created_time,reactions.summary(true)</code
+            >
+            - Posts<br />
+            <code
+              >GET
+              /{page-id}/insights?metric=page_fans_gender_age,page_fans_country</code
+            >
+            - Demographics<br />
+            <code
+              >GET /{post-id}/insights?metric=post_reactions_by_type_total</code
+            >
+            - Post insights<br />
+            <strong>Base URL:</strong>
+            <code>https://graph.facebook.com/v19.0/</code>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px">
+          <h3
+            style="
+              color: #ff0000;
+              border-left: 4px solid #ff0000;
+              padding-left: 12px;
+            "
+          >
+            📺 YouTube API
+          </h3>
+          <div
+            style="
+              background: #f9f9f9;
+              padding: 15px;
+              border-radius: 6px;
+              margin: 10px 0;
+            "
+          >
+            <strong>Registration Process:</strong>
+            <ol style="margin: 10px 0">
+              <li>
+                Create Google Cloud Project at
+                <code>console.cloud.google.com</code>
+              </li>
+              <li>Enable YouTube Data API v3</li>
+              <li>
+                Create credentials (API Key for public data, OAuth2 for user
+                data)
+              </li>
+              <li>Set up OAuth consent screen for user authorization</li>
+            </ol>
+          </div>
+          <div style="background: #e8f4fd; padding: 15px; border-radius: 6px">
+            <strong>Key API Endpoints:</strong><br />
+            <code>GET /channels?part=statistics,snippet&id={channel-id}</code> -
+            Channel info & stats<br />
+            <code
+              >GET /search?part=snippet&channelId={channel-id}&order=date</code
+            >
+            - Channel videos<br />
+            <code>GET /videos?part=statistics,snippet&id={video-id}</code> -
+            Video details<br />
+            <code>GET /channels?part=statistics&mine=true</code> - Own channel
+            stats (OAuth required)<br />
+            <strong>Base URL:</strong>
+            <code>https://www.googleapis.com/youtube/v3/</code><br />
+            <strong>Analytics API:</strong>
+            <code>https://youtubeanalytics.googleapis.com/v2/</code>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px">
+          <h3
+            style="
+              color: #000000;
+              border-left: 4px solid #000000;
+              padding-left: 12px;
+            "
+          >
+            🎵 TikTok API
+          </h3>
+          <div
+            style="
+              background: #f9f9f9;
+              padding: 15px;
+              border-radius: 6px;
+              margin: 10px 0;
+            "
+          >
+            <strong>Registration Process:</strong>
+            <ol style="margin: 10px 0">
+              <li>Apply at <code>developers.tiktok.com</code></li>
+              <li>Submit detailed application with business use case</li>
+              <li>Wait for approval (can take weeks/months)</li>
+              <li>Complete developer verification process</li>
+              <li>
+                Request specific API access (Display API, Marketing API, etc.)
+              </li>
+            </ol>
+          </div>
+          <div style="background: #e8f4fd; padding: 15px; border-radius: 6px">
+            <strong>Key API Endpoints:</strong><br />
+            <code
+              >GET
+              /v2/user/info/?fields=display_name,follower_count,following_count</code
+            >
+            - User info<br />
+            <code
+              >GET /v2/video/list/?fields=id,title,create_time,view_count</code
+            >
+            - User videos<br />
+            <code
+              >GET /v2/video/query/?fields=id,title,view_count,like_count</code
+            >
+            - Video details<br />
+            <strong>Research API:</strong>
+            <code>https://open.tiktokapis.com/v2/research/</code> (Academic use
+            only)<br />
+            <strong>Base URL:</strong> <code>https://open.tiktokapis.com/</code>
+          </div>
+        </div>
+
+        <div
+          style="
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+          "
+        >
+          <h3>⚠️ Important Considerations:</h3>
+          <ul style="margin: 10px 0">
+            <li>
+              <strong>Rate Limits:</strong> All platforms have strict rate
+              limiting (Instagram: 200/hour, YouTube: 10,000 units/day,
+              Facebook: varies by endpoint)
+            </li>
+            <li>
+              <strong>Authentication:</strong> Most valuable data requires user
+              OAuth consent
+            </li>
+            <li>
+              <strong>Business Verification:</strong> Advanced features often
+              require business verification
+            </li>
+            <li>
+              <strong>Compliance:</strong> Each platform has specific terms of
+              service for data usage
+            </li>
+            <li>
+              <strong>Approval Time:</strong> TikTok API approval can take 2-8
+              weeks
+            </li>
+            <li>
+              <strong>Costs:</strong> Some APIs have usage fees beyond free
+              tiers
+            </li>
+          </ul>
+        </div>
+
+        <div
+          style="
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #0dcaf0;
+            margin-top: 20px;
+          "
+        >
+          <h3>🚀 Quick Start Recommendations:</h3>
+          <ol style="margin: 10px 0">
+            <li>
+              <strong>Start with YouTube API</strong> - Easiest to get approved
+              and most open data access
+            </li>
+            <li>
+              <strong>Facebook/Instagram next</strong> - More complex but
+              richest demographic data
+            </li>
+            <li>
+              <strong>TikTok last</strong> - Most restrictive, apply early due
+              to long approval times
+            </li>
+            <li>
+              <strong>Use sandbox/test modes</strong> initially to understand
+              data structures
+            </li>
+            <li>
+              <strong>Plan for rate limiting</strong> in your application
+              architecture
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
